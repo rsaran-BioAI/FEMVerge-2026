@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Mail } from "lucide-react";
+import { Handshake } from "lucide-react";
+import ContactFormDialog from "./ContactFormDialog";
 
 const partners = [
   { name: "Partner TBD", placeholder: true },
@@ -47,10 +48,17 @@ const SponsorsSection = () => {
             <p className="text-muted-foreground mb-6 max-w-md">
               Support the advancement of women in AI and gain visibility among top researchers and industry leaders.
             </p>
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
-              <Mail className="w-5 h-5 mr-2" />
-              Contact for Partnership
-            </Button>
+            <ContactFormDialog
+              inquiryType="partnership"
+              title="Partner With Us"
+              description="Support women in AI and gain visibility among top researchers and industry leaders."
+              trigger={
+                <Button size="lg" className="bg-primary hover:bg-primary/90">
+                  <Handshake className="w-5 h-5 mr-2" />
+                  Contact for Partnership
+                </Button>
+              }
+            />
           </div>
         </div>
       </div>

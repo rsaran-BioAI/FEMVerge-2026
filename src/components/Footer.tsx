@@ -1,29 +1,29 @@
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Linkedin, Twitter, Instagram, Mail, MapPin, Send } from "lucide-react";
+import { Linkedin, Twitter, Instagram, MapPin, MessageSquare } from "lucide-react";
+import ContactFormDialog from "./ContactFormDialog";
 
 const Footer = () => {
   return (
     <footer id="contact" className="bg-foreground text-primary-foreground">
-      {/* Newsletter Section */}
+      {/* Contact Section */}
       <div className="border-b border-primary-foreground/10">
         <div className="container mx-auto px-6 py-16">
           <div className="max-w-2xl mx-auto text-center">
-            <h3 className="text-2xl md:text-3xl font-bold mb-4">Stay Updated</h3>
+            <h3 className="text-2xl md:text-3xl font-bold mb-4">Get In Touch</h3>
             <p className="text-primary-foreground/70 mb-8">
-              Be the first to know about speakers, program updates, and early registration.
+              Have questions? Want to register your interest or become a partner? We'd love to hear from you.
             </p>
-            <form className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-              <Input 
-                type="email" 
-                placeholder="Enter your email" 
-                className="bg-primary-foreground/10 border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/50 focus:border-primary"
-              />
-              <Button className="bg-primary hover:bg-primary/90 shrink-0">
-                <Send className="w-4 h-4 mr-2" />
-                Subscribe
-              </Button>
-            </form>
+            <ContactFormDialog
+              inquiryType="interest"
+              title="Contact Us"
+              description="Send us a message and we'll get back to you as soon as possible."
+              trigger={
+                <Button className="bg-primary hover:bg-primary/90">
+                  <MessageSquare className="w-4 h-4 mr-2" />
+                  Contact Us
+                </Button>
+              }
+            />
           </div>
         </div>
       </div>
@@ -82,15 +82,22 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Contact</h4>
             <ul className="space-y-3">
-              <li className="flex items-center gap-2 text-primary-foreground/60">
-                <Mail className="w-4 h-4 text-primary" />
-                <a href="mailto:info@femverge.ai" className="hover:text-primary transition-colors">
-                  info@femverge.ai
-                </a>
-              </li>
               <li className="flex items-start gap-2 text-primary-foreground/60">
                 <MapPin className="w-4 h-4 text-primary mt-1" />
                 <span>Location TBA</span>
+              </li>
+              <li>
+                <ContactFormDialog
+                  inquiryType="interest"
+                  title="Contact Us"
+                  description="Send us a message and we'll get back to you soon."
+                  trigger={
+                    <button className="text-primary-foreground/60 hover:text-primary transition-colors flex items-center gap-2">
+                      <MessageSquare className="w-4 h-4 text-primary" />
+                      Send us a message
+                    </button>
+                  }
+                />
               </li>
             </ul>
           </div>
