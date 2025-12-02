@@ -1,16 +1,22 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Linkedin, Twitter } from "lucide-react";
+import { Linkedin } from "lucide-react";
+import runjhunPhoto from "@/assets/organizers/runjhun.jpg";
+import shreyaPhoto from "@/assets/organizers/shreya.jpg";
 
 const organizers = [
   {
     name: "Dr. Runjhun Saran Narayan",
     role: "Organizer",
     affiliation: "MOLwise Biosciences Inc, The University of Waterloo, The University of British Columbia",
+    photo: runjhunPhoto,
+    linkedin: "#",
   },
   {
     name: "Ms. Shreya Sharma",
     role: "Organizer",
     affiliation: "",
+    photo: shreyaPhoto,
+    linkedin: "#",
   },
 ];
 
@@ -35,17 +41,12 @@ const OrganizersSection = () => {
               className="group overflow-hidden border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl"
             >
               <CardContent className="p-0">
-                {/* Placeholder Avatar */}
-                <div className="aspect-square bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/30 flex items-center justify-center">
-                  <div className="w-24 h-24 rounded-full bg-card border-4 border-primary/30 flex items-center justify-center">
-                    <span className="text-3xl font-bold text-primary">
-                      {organizer.name
-                        .split(" ")
-                        .filter((n) => n[0] !== "(" && n !== "Dr." && n !== "Ms." && n !== "Mr." && n !== "Prof.")
-                        .map((n) => n[0])
-                        .join("")}
-                    </span>
-                  </div>
+                <div className="aspect-square overflow-hidden">
+                  <img 
+                    src={organizer.photo} 
+                    alt={organizer.name}
+                    className="w-full h-full object-cover"
+                  />
                 </div>
 
                 <div className="p-6 text-center">
@@ -57,18 +58,13 @@ const OrganizersSection = () => {
 
                   <div className="flex items-center justify-center gap-3 mt-4">
                     <a
-                      href="#"
+                      href={organizer.linkedin}
                       className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors"
                       aria-label="LinkedIn"
+                      target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <Linkedin className="w-4 h-4" />
-                    </a>
-                    <a
-                      href="#"
-                      className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors"
-                      aria-label="Twitter"
-                    >
-                      <Twitter className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
