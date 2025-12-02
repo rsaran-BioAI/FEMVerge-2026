@@ -4,14 +4,14 @@ import { Linkedin, Twitter } from "lucide-react";
 const organizers = [
   {
     name: "Dr. Runjhun Saran Narayan",
-    role: "Conference Chair",
-    affiliation: "",
+    role: "Organizer",
+    affiliation: "MOLwise Biosciences Inc, The University of Waterloo, The University of British Columbia",
   },
   {
     name: "Ms. Shreya Sharma",
-    role: "Co-Organizer",
+    role: "Organizer",
     affiliation: "",
-  }
+  },
 ];
 
 const OrganizersSection = () => {
@@ -27,10 +27,10 @@ const OrganizersSection = () => {
             Dedicated leaders bringing together the brightest minds in AI to create an unforgettable experience.
           </p>
         </div>
-        
+
         <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
           {organizers.map((organizer, index) => (
-            <Card 
+            <Card
               key={index}
               className="group overflow-hidden border-border hover:border-primary/50 transition-all duration-300 hover:shadow-xl"
             >
@@ -39,28 +39,32 @@ const OrganizersSection = () => {
                 <div className="aspect-square bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/30 flex items-center justify-center">
                   <div className="w-24 h-24 rounded-full bg-card border-4 border-primary/30 flex items-center justify-center">
                     <span className="text-3xl font-bold text-primary">
-                      {organizer.name.split(' ').filter(n => n[0] !== '(' && n !== 'Dr.' && n !== 'Ms.' && n !== 'Mr.' && n !== 'Prof.').map(n => n[0]).join('')}
+                      {organizer.name
+                        .split(" ")
+                        .filter((n) => n[0] !== "(" && n !== "Dr." && n !== "Ms." && n !== "Mr." && n !== "Prof.")
+                        .map((n) => n[0])
+                        .join("")}
                     </span>
                   </div>
                 </div>
-                
+
                 <div className="p-6 text-center">
                   <h3 className="text-xl font-semibold text-card-foreground mb-1">{organizer.name}</h3>
                   <p className="text-primary font-medium text-sm mb-1">{organizer.role}</p>
                   {organizer.affiliation && (
                     <p className="text-muted-foreground text-sm mb-4">{organizer.affiliation}</p>
                   )}
-                  
+
                   <div className="flex items-center justify-center gap-3 mt-4">
-                    <a 
-                      href="#" 
+                    <a
+                      href="#"
                       className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors"
                       aria-label="LinkedIn"
                     >
                       <Linkedin className="w-4 h-4" />
                     </a>
-                    <a 
-                      href="#" 
+                    <a
+                      href="#"
                       className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors"
                       aria-label="Twitter"
                     >
