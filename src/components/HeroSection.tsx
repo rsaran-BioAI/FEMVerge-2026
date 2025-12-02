@@ -1,6 +1,7 @@
 import heroBg from "@/assets/hero-bg.jpg";
 import { Button } from "@/components/ui/button";
 import { Calendar, MapPin, ArrowRight } from "lucide-react";
+import ContactFormDialog from "./ContactFormDialog";
 
 const HeroSection = () => {
   return (
@@ -57,11 +58,23 @@ const HeroSection = () => {
           
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <Button size="lg" className="group text-lg px-8 py-6 bg-primary hover:bg-primary/90">
-              Register Interest
-              <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button size="lg" variant="outline" className="text-lg px-8 py-6 border-primary/50 bg-primary/10 text-primary-foreground hover:bg-primary/20">
+            <ContactFormDialog
+              inquiryType="interest"
+              title="Register Your Interest"
+              description="Be the first to know when registration opens for FEMverge 2026."
+              trigger={
+                <Button size="lg" className="group text-lg px-8 py-6 bg-primary hover:bg-primary/90">
+                  Register Interest
+                  <ArrowRight className="ml-2 w-5 h-5 transition-transform group-hover:translate-x-1" />
+                </Button>
+              }
+            />
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="text-lg px-8 py-6 border-primary/50 bg-primary/10 text-primary-foreground hover:bg-primary/20"
+              onClick={() => document.getElementById("about")?.scrollIntoView({ behavior: "smooth" })}
+            >
               Learn More
             </Button>
           </div>
