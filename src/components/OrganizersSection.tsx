@@ -3,28 +3,14 @@ import { Linkedin, Twitter } from "lucide-react";
 
 const organizers = [
   {
-    name: "Dr. Sarah Chen",
+    name: "Dr. Runjhun Saran Narayan",
     role: "Conference Chair",
-    affiliation: "AI Research Institute",
-    placeholder: true
+    affiliation: "",
   },
   {
-    name: "Prof. Maya Rodriguez",
-    role: "Program Director",
-    affiliation: "Tech University",
-    placeholder: true
-  },
-  {
-    name: "Dr. Aisha Patel",
-    role: "Industry Liaison",
-    affiliation: "Global Tech Corp",
-    placeholder: true
-  },
-  {
-    name: "Dr. Emma Williams",
-    role: "Academic Chair",
-    affiliation: "Innovation Lab",
-    placeholder: true
+    name: "Ms. Shreya Sharma",
+    role: "Co-Organizer",
+    affiliation: "",
   }
 ];
 
@@ -42,7 +28,7 @@ const OrganizersSection = () => {
           </p>
         </div>
         
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-8 max-w-2xl mx-auto">
           {organizers.map((organizer, index) => (
             <Card 
               key={index}
@@ -53,7 +39,7 @@ const OrganizersSection = () => {
                 <div className="aspect-square bg-gradient-to-br from-primary/20 via-secondary/20 to-accent/30 flex items-center justify-center">
                   <div className="w-24 h-24 rounded-full bg-card border-4 border-primary/30 flex items-center justify-center">
                     <span className="text-3xl font-bold text-primary">
-                      {organizer.name.split(' ').map(n => n[0]).join('')}
+                      {organizer.name.split(' ').filter(n => n[0] !== '(' && n !== 'Dr.' && n !== 'Ms.' && n !== 'Mr.' && n !== 'Prof.').map(n => n[0]).join('')}
                     </span>
                   </div>
                 </div>
@@ -61,9 +47,11 @@ const OrganizersSection = () => {
                 <div className="p-6 text-center">
                   <h3 className="text-xl font-semibold text-card-foreground mb-1">{organizer.name}</h3>
                   <p className="text-primary font-medium text-sm mb-1">{organizer.role}</p>
-                  <p className="text-muted-foreground text-sm mb-4">{organizer.affiliation}</p>
+                  {organizer.affiliation && (
+                    <p className="text-muted-foreground text-sm mb-4">{organizer.affiliation}</p>
+                  )}
                   
-                  <div className="flex items-center justify-center gap-3">
+                  <div className="flex items-center justify-center gap-3 mt-4">
                     <a 
                       href="#" 
                       className="w-9 h-9 rounded-full bg-muted flex items-center justify-center hover:bg-primary/10 hover:text-primary transition-colors"
@@ -84,10 +72,6 @@ const OrganizersSection = () => {
             </Card>
           ))}
         </div>
-        
-        <p className="text-center text-muted-foreground mt-8 italic">
-          * Organizer profiles are placeholders. Real profiles coming soon.
-        </p>
       </div>
     </section>
   );
