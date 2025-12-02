@@ -34,13 +34,10 @@ const AdminLogin = () => {
         }
       }
 
-      // Check if any admin exists - using count approach
-      const { count } = await supabase
-        .from("user_roles")
-        .select("*", { count: "exact", head: true })
-        .eq("role", "admin");
+      // Check if any admin exists using security definer function
+      const { data: adminExists } = await supabase.rpc('admin_exists');
 
-      setIsSetupMode(count === 0);
+      setIsSetupMode(adminExists === false);
       setCheckingSetup(false);
     };
 
