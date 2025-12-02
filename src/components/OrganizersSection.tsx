@@ -45,7 +45,8 @@ const OrganizersSection = () => {
                   <img 
                     src={organizer.photo} 
                     alt={organizer.name}
-                    className="w-full h-full object-cover object-top"
+                    className="w-full h-full object-cover"
+                    style={{ objectPosition: 'center 20%' }}
                   />
                 </div>
 
