@@ -5,7 +5,7 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  base: mode === 'production' ? '/FEMVerge-2026/' : '/',
+  base: process.env.GITHUB_PAGES ? '/FEMVerge-2026/' : '/',
   server: {
     host: "::",
     port: 8080,
